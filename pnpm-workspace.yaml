@@ -1,0 +1,4 @@
+packages:
+  - "packages/*"
+  # 公共的方法 api -axios
+  - "api/**"
