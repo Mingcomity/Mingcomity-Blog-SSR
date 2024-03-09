@@ -1,0 +1,99 @@
+$primary: #555555;
+$contentWidth: var(--content-width, 120rem);
+
+$fontBlackColor: var(--font-black-color, #222222);
+$fontShallowBlackColor: var(--font-shallow-black-color, #3a3a3a);
+$fontGrayColor: var(--font-gray-color, #666666);
+$fontWhiteColor: #ffffff;
+$fontShallowWhiteColor: #ffffff;
+
+$blockHoverColor: var(--block-hover-color, #eeeeee);
+
+$borderGrayColor: var(--border-gray-color, #dddddd);
+$borderBlackColor: var(--border-black-color, #444444);
+
+$appHeaderHeight: 8rem;
+$appHeaderBgColor: var(--app-header-bg-color, #ffffff);
+$homeBannerHeight: 50rem;
+
+$bgGrayColor: var(--bg-gary-color, #f6f6f6);
+
+// 黑夜模式颜色更替
+html.dark {
+  --font-black-color: #eeeeee;
+  --font-gray-color: #dddddd;
+  --app-header-bg-color: #141414;
+  --border-black-color: #eeeeee;
+  --font-shallow-black-color: #;
+  --border-gray-color: #555555;
+  --block-hover-color: #444444;
+}
+// 布局
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-center-every {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@mixin flex-start-start-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-center-start-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin flex-center-between-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+/*多行省略*/
+@mixin multi-line($num) {
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+/*边距*/
+@mixin margin-right($width) {
+  margin-right: $width;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@mixin margin-bottom($height) {
+  margin-bottom: $height;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*背景图自适应*/
+@mixin bgImgSelfAdaption() {
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+}

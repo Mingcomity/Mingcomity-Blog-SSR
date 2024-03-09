@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Parisienne-Regular";
+  src: url("~/assets/font/Parisienne-Regular.eot");
+  /* IE9 */
+  src: url("~/assets/font/Parisienne-Regular.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+
+    url("~/assets/font/Parisienne-Regular.woff") format("woff"),
+    /* chrome、firefox */
+    url("~/assets/font/Parisienne-Regular.ttf") format("truetype"),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+
+    url("~/assets/font/Parisienne-Regular.svg#Parisienne-Regular") format("svg");
+  /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Poppins-BlackItalic";
+  src: url("~/assets/font/Poppins-BlackItalic.eot");
+  /* IE9 */
+  src: url("~/assets/font/Poppins-BlackItalic.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+
+    url("~/assets/font/Poppins-BlackItalic.woff") format("woff"),
+    /* chrome、firefox */
+    url("~/assets/font/Poppins-BlackItalic.ttf") format("truetype"),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+
+    url("~/assets/font/Poppins-BlackItalic.svg#Poppins-BlackItalic") format("svg");
+  /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}

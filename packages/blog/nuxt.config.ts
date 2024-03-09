@@ -2,6 +2,17 @@
 // import ElementPlus from 'unplugin-element-plus/vite'
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  css: ['~/assets/css/global.scss', '~/assets/css/font.css', '~/assets/iconFont/iconfont.css'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData:
+            '@use "@/assets/css/variables.scss" as *; @use "@/assets/css/element/index.scss" as element;'
+        }
+      }
+    }
+  },
   app: {
     head: {
       meta: [
@@ -27,6 +38,15 @@ export default defineNuxtConfig({
         autoImports: ['defineStore', 'storeToRefs']
       }
     ],
-    '@element-plus/nuxt'
-  ]
+    '@element-plus/nuxt',
+    '@nuxtjs/color-mode'
+  ],
+  // colorMode
+  colorMode: {
+    classSuffix: ''
+  },
+  elementPlus: {
+    importStyle: 'scss',
+    themes: ['dark']
+  }
 })
