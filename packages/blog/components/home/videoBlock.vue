@@ -53,11 +53,11 @@
     }
     .videoBox {
       height: 50rem;
-      padding: 0 6.4rem;
+      padding: 0 12rem;
       margin-right: 4.8rem;
       flex: 2;
       .video {
-        box-shadow: 0 0 20px 0 #dfdfdf;
+        box-shadow: 0 0 20px 0 $shadowGrayColor;
       }
     }
   }

@@ -95,7 +95,6 @@
     }
     .imgBox {
       width: 100%;
-      max-width: 133rem;
       .imageContainer {
         @include flex-center-center();
         flex-wrap: wrap;

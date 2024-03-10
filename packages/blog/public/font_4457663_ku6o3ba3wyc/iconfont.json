@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "21730726",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "38436922",
+      "name": "哔哩哔哩",
+      "font_class": "bilibili",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "2264158",
+      "name": "观看",
+      "font_class": "guankan",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "25964416",
+      "name": "点赞",
+      "font_class": "dianzan",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
       "icon_id": "2764443",
       "name": "摄影摄像",
       "font_class": "sheyingshexiang",

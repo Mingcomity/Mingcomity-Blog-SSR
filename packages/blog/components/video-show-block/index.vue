@@ -43,6 +43,7 @@
   .maskingBox {
     @include absolute-fill();
     @include bgImgSelfAdaption();
+    box-shadow: inset 0 0 4rem 2px #333;
     transition: opacity 1s;
   }
   .describe {

@@ -1,15 +1,17 @@
 $primary: #555555;
-$contentWidth: var(--content-width, 120rem);
+$contentWidth: var(--content-width, 133rem);
 
 $fontBlackColor: var(--font-black-color, #222222);
 $fontShallowBlackColor: var(--font-shallow-black-color, #3a3a3a);
 $fontGrayColor: var(--font-gray-color, #666666);
+$fontShallowGrayColor: var(--font-shallow-gray-color, #999999);
 $fontWhiteColor: #ffffff;
-$fontShallowWhiteColor: #ffffff;
+$fontShallowWhiteColor: #f5f5f5;
 
 $blockHoverColor: var(--block-hover-color, #eeeeee);
+$blockHoverShallowColor: var(--block-hover-shallow-color, #f6f6f6);
 
-$borderGrayColor: var(--border-gray-color, #dddddd);
+$borderGrayColor: var(--border-gray-color, #f1f1f1);
 $borderBlackColor: var(--border-black-color, #444444);
 
 $appHeaderHeight: 8rem;
@@ -17,16 +19,25 @@ $appHeaderBgColor: var(--app-header-bg-color, #ffffff);
 $homeBannerHeight: 50rem;
 
 $bgGrayColor: var(--bg-gary-color, #f6f6f6);
+$bgWhiteColor: var(--bg-white-color, #ffffff);
+
+$shadowGrayColor: var(--shadow-gray-color, #dfdfdf);
 
 // 黑夜模式颜色更替
 html.dark {
+  // --if-dark: 1;
   --font-black-color: #eeeeee;
+  --font-shallow-black-color: #dadada;
   --font-gray-color: #dddddd;
+  --font-shallow-gray-color: #cacaca;
   --app-header-bg-color: #141414;
   --border-black-color: #eeeeee;
-  --font-shallow-black-color: #;
   --border-gray-color: #555555;
   --block-hover-color: #444444;
+  --block-hover-shallow-color: #333333;
+  --bg-gary-color: #1d1d1d;
+  --bg-white-color: #141414;
+  --shadow-gray-color: #00000000;
 }
 // 布局
 @mixin flex-center {
@@ -36,6 +47,10 @@ html.dark {
 @mixin flex-center-between {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-start-between {
+  display: flex;
   justify-content: space-between;
 }
 @mixin flex-center-center {
@@ -60,6 +75,11 @@ html.dark {
 @mixin flex-center-between-column {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@mixin flex-start-between-column {
+  display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
