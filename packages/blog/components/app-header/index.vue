@@ -8,7 +8,7 @@
       </div>
       <div class="navBox">
         <NuxtLink class="linkBox" to="/note"> <div class="navItem">笔记</div></NuxtLink>
-        <NuxtLink class="linkBox" to="/"> <div class="navItem">图片库</div></NuxtLink>
+        <NuxtLink class="linkBox" to="/photo"> <div class="navItem">图片库</div></NuxtLink>
         <NuxtLink class="linkBox" to="/"> <div class="navItem">影视创作</div></NuxtLink>
         <NuxtLink class="linkBox" to="/"> <div class="navItem">生活随笔</div></NuxtLink>
       </div>
@@ -43,6 +43,7 @@
                 height="200"
               >
                 <path
+                  id="appHeaderMoon"
                   d="M653.80352 760.40704a463.62624 463.62624 0 0 1-213.48864-178.14528C332.3648 414.03392 347.37152 202.96704 460.16512 51.2a462.52032 462.52032 0 0 0-153.216 62.208 466.21696 466.21696 0 0 0-203.32544 293.6064c-26.14272 120.78592-3.38944 247.37792 63.41632 351.45728a460.94336 460.94336 0 0 0 126.1056 130.94912 465.9712 465.9712 0 0 0 166.53312 72.61696 464.2304 464.2304 0 0 0 181.78048 3.38944c60.27264-10.89536 117.63712-33.64864 169.19552-66.56512a465.664 465.664 0 0 0 120.29952-114.24768 466.23744 466.23744 0 0 1-277.15072-24.20736z"
                   fill="#e6e6e6"
                 ></path>
@@ -96,6 +97,7 @@ const searchLoading = ref(true)
 
 <style lang="scss" scoped>
 .appHeader {
+  margin: 1rem 1rem 0;
   height: $appHeaderHeight;
   background-color: $appHeaderBgColor;
   padding: 0 4rem;
@@ -126,22 +128,10 @@ const searchLoading = ref(true)
           line-height: 4rem;
           font-size: 1.8rem;
           position: relative;
-          transition: color 0.2s;
+          transition: all 0.3s;
           &:hover {
             color: $fontBlackColor;
-            &::after {
-              width: 100%;
-            }
-          }
-          &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 2px;
-            width: 0%;
-            background-color: $borderBlackColor;
-            transition: width 0.2s;
+            transform: translateY(-2px);
           }
         }
       }

@@ -3,10 +3,10 @@ $contentWidth: var(--content-width, 133rem);
 
 $fontBlackColor: var(--font-black-color, #222222);
 $fontShallowBlackColor: var(--font-shallow-black-color, #3a3a3a);
-$fontGrayColor: var(--font-gray-color, #666666);
+$fontGrayColor: var(--font-gray-color, #777777);
 $fontShallowGrayColor: var(--font-shallow-gray-color, #999999);
 $fontWhiteColor: #ffffff;
-$fontShallowWhiteColor: #f5f5f5;
+$fontShallowWhiteColor: #f1f1f1;
 
 $blockHoverColor: var(--block-hover-color, #eeeeee);
 $blockHoverShallowColor: var(--block-hover-shallow-color, #f6f6f6);
@@ -22,10 +22,10 @@ $bgGrayColor: var(--bg-gary-color, #f6f6f6);
 $bgWhiteColor: var(--bg-white-color, #ffffff);
 
 $shadowGrayColor: var(--shadow-gray-color, #dfdfdf);
+$shadowBlackColor: var(--shadow-black-color, #00000012);
 
 // 黑夜模式颜色更替
 html.dark {
-  // --if-dark: 1;
   --font-black-color: #eeeeee;
   --font-shallow-black-color: #dadada;
   --font-gray-color: #dddddd;

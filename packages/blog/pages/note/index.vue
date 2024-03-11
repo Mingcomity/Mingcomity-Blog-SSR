@@ -70,6 +70,10 @@ const sortOptions = [
   {
     value: '3',
     label: '阅读时长'
+  },
+  {
+    value: '4',
+    label: '点赞数'
   }
 ]
 const noteDatas = [

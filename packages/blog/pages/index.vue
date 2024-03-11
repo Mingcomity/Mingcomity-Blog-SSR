@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <div class="brief">
+    <section class="brief">
       <HomeBrief />
-    </div>
-    <div class="picture">
+    </section>
+    <section class="picture">
       <HomePictureBlock />
-    </div>
-    <div class="video">
+    </section>
+    <section class="video">
       <HomeVideoBlock />
-    </div>
-    <div class="note">
+    </section>
+    <section class="note">
       <HomeNoteBlock />
-    </div>
+    </section>
   </div>
 </template>
 

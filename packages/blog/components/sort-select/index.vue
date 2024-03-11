@@ -1,16 +1,16 @@
 <template>
   <div class="sortSelect">
     <span class="text">{{ text }}：</span>
-    <el-select v-model="current" class="select" placeholder="Select">
-      <client-only>
+    <client-only>
+      <el-select v-model="current" class="select" placeholder="Select">
         <el-option
           v-for="item in options"
           :key="item.value"
           :label="item.label"
           :value="item.value"
         />
-      </client-only>
-    </el-select>
+      </el-select>
+    </client-only>
   </div>
 </template>
 
@@ -53,8 +53,10 @@ watch(
   }
   .select {
     width: 12rem;
-    color: $fontBlackColor;
-    font-weight: 600;
+    :deep(.el-select__placeholder) {
+      color: $fontBlackColor;
+      font-weight: 600;
+    }
   }
 }
 </style>
