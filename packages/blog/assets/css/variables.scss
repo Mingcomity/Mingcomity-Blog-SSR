@@ -44,6 +44,10 @@ html.dark {
   display: flex;
   align-items: center;
 }
+@mixin flex-start {
+  display: flex;
+  align-items: flex-start;
+}
 @mixin flex-center-between {
   display: flex;
   align-items: center;

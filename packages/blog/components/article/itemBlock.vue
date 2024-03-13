@@ -1,6 +1,6 @@
 <template>
   <li class="liBlock">
-    <NuxtLink to="/" class="noteItemBlock">
+    <NuxtLink to="/article/detail/1111" class="articleItemBlock">
       <div class="infoBox">
         <h3 class="title">{{ data.title }}</h3>
         <p class="described">{{ data.described }}</p>
@@ -45,7 +45,7 @@ withDefaults(
     border: none;
   }
 }
-.noteItemBlock {
+.articleItemBlock {
   @include flex-center-between();
   height: 11rem;
   padding: 1.8rem 0;

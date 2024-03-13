@@ -1,5 +1,5 @@
 <template>
-  <div class="homeNoteBlock">
+  <div class="homeArticleBlock">
     <HomeBgImgTitle
       title="笔记"
       icon-bg-color="#00ffff"
@@ -8,7 +8,7 @@
     />
     <div class="content contentCenter">
       <div class="describe">
-        <h3 class="title">时常发布新的笔记</h3>
+        <h3 class="title">时常发布新的文章</h3>
         <p class="text">
           描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本
         </p>
@@ -23,7 +23,7 @@
 
 <script setup lang="ts"></script>
 <style lang="scss" scoped>
-.homeNoteBlock {
+.homeArticleBlock {
   width: 100%;
   .content {
     @include flex-center();

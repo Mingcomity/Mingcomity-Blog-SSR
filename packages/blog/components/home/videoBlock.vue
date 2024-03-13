@@ -1,5 +1,5 @@
 <template>
-  <div class="homeNoteBlock">
+  <div class="homeVideoBlock">
     <HomeBgImgTitle
       title="视频创作"
       icon-bg-color="#FFA6C9"
@@ -23,7 +23,7 @@
 
 <script setup lang="ts"></script>
 <style lang="scss" scoped>
-.homeNoteBlock {
+.homeVideoBlock {
   width: 100%;
   .content {
     @include flex-center();

@@ -1,5 +1,5 @@
 <template>
-  <div class="homeNoteBlock">
+  <div class="homePhotoBlock">
     <HomeBgImgTitle
       title="图片库"
       icon-bg-color="#FF7900"
@@ -64,7 +64,7 @@
 
 <script setup lang="ts"></script>
 <style lang="scss" scoped>
-.homeNoteBlock {
+.homePhotoBlock {
   width: 100%;
   .content {
     @include flex-center-start-column();

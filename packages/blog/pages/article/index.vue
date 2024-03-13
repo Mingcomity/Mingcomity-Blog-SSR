@@ -1,5 +1,5 @@
 <template>
-  <div class="note">
+  <div class="article">
     <div class="contentCenter">
       <h2 class="title">笔记</h2>
       <div class="content">
@@ -9,7 +9,7 @@
             <sort-select :options="sortOptions" :default-value="'1'" />
           </nav>
           <ul class="lists">
-            <note-item-block v-for="item in noteDatas" :key="item.title" :data="item" />
+            <article-item-block v-for="item in noteDatas" :key="item.title" :data="item" />
           </ul>
         </div>
         <aside class="aside">
@@ -17,15 +17,8 @@
             <p class="callText">下午好!</p>
             <p class="sayingText">天空黑暗到一定程度，星辰就会耀耀生辉</p>
           </div>
-          <div class="recommendBox">
-            <h4 class="title">推荐文章</h4>
-            <ul class="items">
-              <li class="item"><nuxt-link> Vue3 开发笔记 </nuxt-link></li>
-              <li class="item"><nuxt-link> React 开发笔记 </nuxt-link></li>
-              <li class="item"><nuxt-link> Vue2 开发笔记 </nuxt-link></li>
-              <li class="item"><nuxt-link> 理解CSS </nuxt-link></li>
-            </ul>
-          </div>
+          <article-aside-block class="recommendBox" title="推荐文章" :list-data="recommendData">
+          </article-aside-block>
         </aside>
       </div>
     </div>
@@ -166,12 +159,19 @@ const noteDatas = [
     coverImgUrl: 'https://file.8kraw.com/photo/w2000w/19dd4b524143d0e617f5bce3d87007fd_w2000w.jpg'
   }
 ]
+const recommendData = [
+  { title: 'Vue3 开发笔记', link: '' },
+  { title: 'React 开发笔记', link: '' },
+  { title: 'Vue2 开发笔记', link: '' },
+  { title: '理解CSS', link: '' }
+]
 </script>
 
 <style lang="scss" scoped>
-.note {
+.article {
   background-color: $bgGrayColor;
   padding: 3.6rem 0;
+  position: relative;
   .title {
     margin-top: 0;
     font-size: 4.4rem;
@@ -180,8 +180,9 @@ const noteDatas = [
   }
   .content {
     @include flex-start-between();
-    flex: 1;
+
     .main {
+      flex: 1;
       background-color: $bgWhiteColor;
       padding: 2.4rem 0;
       border-radius: 6px;
@@ -199,7 +200,10 @@ const noteDatas = [
       }
     }
     .aside {
-      width: 56rem;
+      width: 34rem;
+      position: sticky;
+      top: 2rem;
+      align-self: flex-start;
       .callBox,
       .recommendBox {
         background-color: $bgWhiteColor;
@@ -219,29 +223,6 @@ const noteDatas = [
           line-height: 1.8rem;
           color: $fontGrayColor;
           @include multi-line(2);
-        }
-      }
-      .recommendBox {
-        padding: 2.4rem 0 1.8rem;
-        .title {
-          font-size: 1.8rem;
-          margin: 0;
-          padding: 0 2.4rem 1.2rem;
-          border-bottom: 1px solid $borderGrayColor;
-        }
-        .items {
-          margin-top: 1.2rem;
-          padding: 0 1.2rem;
-          .item {
-            color: $fontShallowBlackColor;
-            font-size: 1.4rem;
-            border-radius: 4px;
-            padding: 1.2rem 1.2rem;
-            letter-spacing: 1px;
-            &:hover {
-              background-color: $blockHoverShallowColor;
-            }
-          }
         }
       }
     }
