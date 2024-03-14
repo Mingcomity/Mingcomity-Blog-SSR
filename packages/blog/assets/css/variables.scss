@@ -1,8 +1,9 @@
-$primary: #555555;
+$primary: #468fea;
 $contentWidth: var(--content-width, 133rem);
 
 $fontBlackColor: var(--font-black-color, #222222);
 $fontShallowBlackColor: var(--font-shallow-black-color, #3a3a3a);
+$fontDeeprayColor: var(--font-deep-gray-color, #5a5a5a);
 $fontGrayColor: var(--font-gray-color, #777777);
 $fontShallowGrayColor: var(--font-shallow-gray-color, #999999);
 $fontWhiteColor: #ffffff;
@@ -27,7 +28,8 @@ $shadowBlackColor: var(--shadow-black-color, #00000012);
 // 黑夜模式颜色更替
 html.dark {
   --font-black-color: #eeeeee;
-  --font-shallow-black-color: #dadada;
+  --font-shallow-black-color: #eaeaea;
+  --font-deep-gray-color: #dfdfdf;
   --font-gray-color: #dddddd;
   --font-shallow-gray-color: #cacaca;
   --app-header-bg-color: #141414;

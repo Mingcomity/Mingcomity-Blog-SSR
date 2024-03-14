@@ -8,5 +8,6 @@
 
 <script lang="ts" setup>
 import { ElConfigProvider } from 'element-plus'
+// @ts-ignore
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 </script>

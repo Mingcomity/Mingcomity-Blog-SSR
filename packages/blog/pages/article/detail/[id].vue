@@ -15,13 +15,32 @@
           <div class="articleFooter"></div>
         </div>
         <div class="commentBox">
-          <span class="head">评论 {{ data.commentNumber }}</span>
+          <div class="head">评论 {{ data.commentNumber }}</div>
+          <div class="replyBox">
+            <comment-input />
+          </div>
+          <ul class="commentListBox">
+            <li v-for="item in commentData" :key="item.data.id" class="item">
+              <comment-list :data="item.data" />
+              <div v-if="item.commentData.length" class="moreComment">
+                <comment-list
+                  v-for="reply in item.commentData"
+                  :key="reply.id"
+                  class="replyItem"
+                  :data="reply"
+                />
+                <p class="viewAll" @click="viewAllHandler">
+                  查看全部{{ item.commentData.length }}条回复
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
       <aside class="asideBox">
         <article-aside-block class="recommendBox" title="推荐文章" :list-data="recommendData">
         </article-aside-block>
-        <article-aside-block class="choicenessBox" title="推荐文章" :list-data="recommendData">
+        <article-aside-block class="choicenessBox" title="精选文章" :list-data="recommendData">
         </article-aside-block>
       </aside>
     </div>
@@ -172,6 +191,80 @@ const recommendData = [
   { title: 'Vue2 开发笔记', link: '' },
   { title: '理解CSS', link: '' }
 ]
+const commentData = [
+  {
+    data: {
+      id: '1',
+      commentName: 'Mingcomity',
+      replyName: '',
+      content:
+        '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本',
+      date: '2024年3月14日',
+      likesNumber: 10,
+      commentNumber: 1
+    },
+    commentData: [
+      {
+        id: '1',
+        commentName: 'abc',
+        replyName: '',
+        content:
+          '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本',
+        date: '2024年3月14日',
+        likesNumber: 10,
+        commentNumber: 0
+      },
+      {
+        id: '2',
+        commentName: 'bbbbb',
+        replyName: 'abc',
+        content: '述文本描述文本描述文本描述文本描述文本描述文本',
+        date: '2024年3月14日',
+        likesNumber: 10,
+        commentNumber: 0
+      },
+      {
+        id: '3',
+        commentName: 'Mingcomity',
+        replyName: '',
+        content:
+          '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本',
+        date: '2024年3月14日',
+        likesNumber: 10,
+        commentNumber: 0
+      }
+    ]
+  },
+  {
+    data: {
+      id: '2',
+      commentName: 'Mingcomity',
+      replyName: '',
+      content:
+        '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本',
+      date: '2024年3月14日',
+      likesNumber: 10,
+      commentNumber: 10
+    },
+    commentData: []
+  },
+  {
+    data: {
+      id: '3',
+      commentName: 'Mingcomity',
+      replyName: '',
+      content:
+        '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本',
+      date: '2024年3月14日',
+      likesNumber: 10,
+      commentNumber: 10
+    },
+    commentData: []
+  }
+]
+const viewAllHandler = () => {
+  console.log('查看全部回复')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -207,9 +300,39 @@ const recommendData = [
       .commentBox {
         padding: 2.4rem;
         background-color: $bgWhiteColor;
+        .head,
+        .replyBox,
+        .commentListBox {
+          @include margin-bottom(2.4rem);
+        }
         .head {
           font-size: 1.8rem;
           color: $fontShallowBlackColor;
+        }
+        .replyBox {
+          padding: 0 2.4rem;
+        }
+        .commentListBox {
+          margin-top: 2.4rem;
+          padding: 0 2.4rem;
+          .item {
+            @include margin-bottom(3.6rem);
+            .moreComment {
+              margin-top: 2.4rem;
+              margin-left: 4.8rem;
+              .replyItem {
+                @include margin-bottom(3.6rem);
+              }
+              .viewAll {
+                cursor: pointer;
+                color: $fontGrayColor;
+                letter-spacing: 1px;
+                &:hover {
+                  color: $primary;
+                }
+              }
+            }
+          }
         }
       }
     }
