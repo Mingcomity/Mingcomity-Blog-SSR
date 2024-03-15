@@ -12,7 +12,24 @@
             <div class="readTime">阅读{{ data.readingTime }}分钟</div>
           </div>
           <div class="htmlBox" v-html="data.htmlStr"></div>
-          <div class="articleFooter"></div>
+          <div class="articleFooter">
+            <div class="tagBox">
+              <span class="title">标签：</span>
+              <span v-for="tag in data.tag" :key="tag" class="tag">#{{ tag }}</span>
+            </div>
+            <div
+              :class="{
+                likeBox: true,
+                active: true
+              }"
+            >
+              <el-badge :value="data.likesNumber">
+                <el-button circle size="large" :type="`${true ? 'primary' : ''}`">
+                  <span class="iconfont icon-dianzan"></span>
+                </el-button>
+              </el-badge>
+            </div>
+          </div>
         </div>
         <div class="commentBox">
           <div class="head">评论 {{ data.commentNumber }}</div>
@@ -31,6 +48,7 @@
                 />
                 <p class="viewAll" @click="viewAllHandler">
                   查看全部{{ item.commentData.length }}条回复
+                  <span class="iconfont icon-xiala"></span>
                 </p>
               </div>
             </li>
@@ -183,7 +201,8 @@ const data = {
           </ul>
         </blockquote>
       </div>`,
-  readingTime: 10
+  readingTime: 10,
+  tag: ['Vue', 'JavaScript']
 }
 const recommendData = [
   { title: 'Vue3 开发笔记', link: '' },
@@ -295,6 +314,34 @@ const viewAllHandler = () => {
           border-bottom: 1px solid $borderGrayColor;
         }
         .htmlBox {
+          margin-bottom: 3.6rem;
+        }
+        .articleFooter {
+          @include flex-center-between();
+          .tagBox {
+            font-size: 1.4rem;
+            color: $fontShallowBlackColor;
+            .title {
+              font-size: 1.4rem;
+              color: $fontGrayColor;
+              margin-right: 1.2rem;
+            }
+            .tag {
+              @include margin-right(1.2rem);
+            }
+          }
+          .likeBox {
+            font-size: 1.8rem;
+            @include flex-center();
+            .iconfont {
+              font-size: 1.8rem;
+            }
+            &.active {
+              :deep(.el-badge__content) {
+                background-color: $primary;
+              }
+            }
+          }
         }
       }
       .commentBox {

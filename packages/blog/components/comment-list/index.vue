@@ -34,7 +34,7 @@
 import type { CommentInput } from '#build/components'
 
 const emit = defineEmits(['likeClick'])
-const ifReply = ref(false)
+const ifReply = ref<boolean>(false)
 const commentInputRef = ref<InstanceType<typeof CommentInput>>()
 // 点击评论按钮
 const commentClickHandler = () => {
