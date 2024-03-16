@@ -31,6 +31,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'vue/multi-word-component-names': 'off',
     'vue/no-multiple-template-root': 'off',
-    'vue/no-v-html': 'off'
+    'vue/no-v-html': 'off',
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off'
   }
 }

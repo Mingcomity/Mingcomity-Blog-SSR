@@ -34,7 +34,7 @@
         <div class="commentBox">
           <div class="head">评论 {{ data.commentNumber }}</div>
           <div class="replyBox">
-            <comment-input />
+            <comment-input-v1 />
           </div>
           <ul class="commentListBox">
             <li v-for="item in commentData" :key="item.data.id" class="item">

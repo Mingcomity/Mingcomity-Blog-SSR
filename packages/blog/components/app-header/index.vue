@@ -10,7 +10,6 @@
         <NuxtLink class="linkBox" to="/article"> <div class="navItem">文章</div></NuxtLink>
         <NuxtLink class="linkBox" to="/photo"> <div class="navItem">图片库</div></NuxtLink>
         <NuxtLink class="linkBox" to="/video"> <div class="navItem">影视创作</div></NuxtLink>
-        <NuxtLink class="linkBox" to="/"> <div class="navItem">生活随笔</div></NuxtLink>
       </div>
     </div>
     <div class="right">

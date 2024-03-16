@@ -6,7 +6,7 @@
       <el-carousel class="carousel" :interval="10000" arrow="never">
         <app-header class="header" />
         <el-carousel-item>
-          <nuxt-link>
+          <nuxt-link to="/photo/detail/11111">
             <div class="imgBox">
               <img class="img" src="/photoBanner.jpg" />
               <div class="infoBox">
@@ -24,7 +24,7 @@
           </nuxt-link>
         </el-carousel-item>
         <el-carousel-item>
-          <nuxt-link>
+          <nuxt-link to="/photo/detail/11111">
             <div class="imgBox">
               <img class="img" src="/photoBanner2.jpg" />
               <div class="infoBox">
@@ -42,7 +42,7 @@
           </nuxt-link>
         </el-carousel-item>
         <el-carousel-item>
-          <nuxt-link>
+          <nuxt-link to="/photo/detail/11111">
             <div class="imgBox">
               <img class="img" src="/photoBanner3.jpg" />
               <div class="infoBox">

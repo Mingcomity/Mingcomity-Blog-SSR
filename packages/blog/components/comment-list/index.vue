@@ -6,7 +6,12 @@
         <span class="reply">回复</span>{{ data.replyName }}
       </span>
     </div>
-    <div class="content">{{ data.content }}</div>
+    <ExpandedText
+      class="content"
+      :row="textConfig.row"
+      :text="data.content"
+      :line-height="textConfig.lineHeight"
+    ></ExpandedText>
     <div class="dataBox">
       <span class="date">{{ data.date }}</span>
       <span class="likesNumber" @click="() => emit('likeClick')">
@@ -25,17 +30,53 @@
       </span>
     </div>
     <div v-if="ifReply" class="commentInput">
-      <CommentInput ref="commentInputRef" @blur="commentBlurHandler" />
+      <CommentInputV1
+        v-if="inputVersion === 'v1'"
+        ref="commentInputRef"
+        @blur="commentBlurHandler"
+      />
+      <CommentInputV2 v-else ref="commentInputRef" @blur="commentBlurHandler" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { CommentInput } from '#build/components'
-
+import type { CommentInputV1 } from '#build/components'
+const props = withDefaults(
+  defineProps<{
+    data: {
+      commentName: string
+      replyName: string
+      content: string
+      date: string
+      likesNumber: number
+      commentNumber: number
+    }
+    inputVersion?: 'v1' | 'v2'
+    textConfig?: {
+      lineHeight: string
+      row: number
+    }
+  }>(),
+  {
+    data: () => ({
+      commentName: '',
+      replyName: '',
+      content: '',
+      date: '',
+      likesNumber: 0,
+      commentNumber: 0
+    }),
+    inputVersion: 'v1',
+    textConfig: () => ({
+      lineHeight: '2.4rem',
+      row: 3
+    })
+  }
+)
 const emit = defineEmits(['likeClick'])
 const ifReply = ref<boolean>(false)
-const commentInputRef = ref<InstanceType<typeof CommentInput>>()
+const commentInputRef = ref<InstanceType<typeof CommentInputV1>>()
 // 点击评论按钮
 const commentClickHandler = () => {
   ifReply.value = !ifReply.value
@@ -49,28 +90,6 @@ const commentBlurHandler = (ifValue: boolean) => {
     ifReply.value = ifValue
   }, 200)
 }
-withDefaults(
-  defineProps<{
-    data: {
-      commentName: string
-      replyName: string
-      content: string
-      date: string
-      likesNumber: number
-      commentNumber: number
-    }
-  }>(),
-  {
-    data: () => ({
-      commentName: '',
-      replyName: '',
-      content: '',
-      date: '',
-      likesNumber: 0,
-      commentNumber: 0
-    })
-  }
-)
 </script>
 <style lang="scss" scoped>
 .comment {
@@ -91,7 +110,7 @@ withDefaults(
   }
   .content {
     letter-spacing: 1px;
-    line-height: 2.4rem;
+    line-height: v-bind('props.textConfig.lineHeight');
   }
   .dataBox {
     font-size: 1.4rem;
