@@ -2,14 +2,14 @@
   <div class="video">
     <div class="controlBox"></div>
     <div class="videoListBox">
-      <VideoList v-for="item in data" :key="item.id" class="item" :data="item" />
+      <NuxtLink v-for="item in data" :key="item.id" to="/video/detail/1111">
+        <VideoListV1 class="item" :data="item" />
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import VideoList from '~/components/video/videoList.vue'
-
 definePageMeta({
   layout: 'video-layout'
 })

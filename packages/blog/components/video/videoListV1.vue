@@ -64,6 +64,7 @@ withDefaults(
       letter-spacing: 2px;
       line-height: 4.6rem;
       margin-top: 0;
+      color: $fontBlackColor;
       @include multi-line(5);
     }
     .date {
@@ -74,6 +75,7 @@ withDefaults(
     .tag {
       font-size: 1.6rem;
       margin-bottom: 3.2rem;
+      color: $fontShallowBlackColor;
       & > span {
         @include margin-right(1.6rem);
       }

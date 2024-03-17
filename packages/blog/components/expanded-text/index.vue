@@ -17,7 +17,7 @@ const props = withDefaults(
   defineProps<{
     text: string
     row: number
-    lineHeight?: string
+    lineHeight: string
   }>(),
   {
     text: '',
@@ -43,16 +43,8 @@ const textBoxHeight = computed(() => {
   if (isExpanded.value) {
     return 'auto'
   } else {
-    const lineHeight = process.client
-      ? getNumFromValue(
-          document.defaultView?.getComputedStyle(calculateRowBoxRef.value!, null).lineHeight!
-        )
-      : getNumFromValue(props.lineHeight)
-    return props.row * lineHeight + (process.client ? 'px' : getUnitFromValue(props.lineHeight))
+    return props.row * getNumFromValue(props.lineHeight) + getUnitFromValue(props.lineHeight)
   }
-})
-const lineHeight = computed(() => {
-  return process.client ? 'inherit' : props.lineHeight
 })
 </script>
 <style lang="scss" scoped>
@@ -60,14 +52,14 @@ const lineHeight = computed(() => {
   position: relative;
   overflow: hidden;
   .text {
-    line-height: v-bind(lineHeight);
+    line-height: v-bind('props.lineHeight');
     margin: 0;
     overflow: hidden;
     height: v-bind(textBoxHeight);
   }
   .calculateRowBox {
     position: absolute;
-    line-height: v-bind(lineHeight);
+    line-height: v-bind('props.lineHeight');
     width: 100%;
     top: 99999px;
     left: 99999px;
