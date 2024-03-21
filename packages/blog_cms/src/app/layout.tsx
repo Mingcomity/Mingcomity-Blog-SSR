@@ -3,11 +3,11 @@ import type { Metadata } from 'next'
 import '@/assets/css/global.css'
 
 // style-commpents 与 next 结合
-import StyledComponentsRegistry from './(lib)/registry-style'
+import StyledComponentsRegistry from '../lib/registry-style'
 // style-commpents 中的 theme
-import ThemeStyle from './(lib)/theme-style'
+import ThemeStyle from '../lib/theme-style'
 // antd 配置以及ssr处理方案
-import AntConfigProvider from './(lib)/ant-config-provider'
+import AntConfigProvider from '../lib/ant-config-provider-app-router'
 
 export const metadata: Metadata = {
   title: '博客后台管理',
@@ -25,7 +25,7 @@ export default function RootLayout({
         <AntConfigProvider>
           <StyledComponentsRegistry>
             <ThemeStyle>{children}</ThemeStyle>
-          </StyledComponentsRegistry>{' '}
+          </StyledComponentsRegistry>
         </AntConfigProvider>
       </body>
     </html>
