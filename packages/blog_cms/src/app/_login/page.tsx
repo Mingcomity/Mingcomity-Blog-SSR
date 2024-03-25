@@ -4,7 +4,7 @@ import type { FC, ReactNode } from 'react'
 import { PageWrapper } from './style'
 import classNames from 'classnames'
 import LoginForm from '@/components/loginForm'
-import AnimationTwoPointFiveD from '@/components/animationTwoPointFiveD'
+import AnimationTwoPointFiveD from '@/components/loginSvg'
 interface IProps {
   children?: ReactNode
 }

@@ -25,6 +25,7 @@ const LoginFrom: FC<IProps> = () => {
         className={classNames('login-form')}
         initialValues={{ remember: true }}
         onFinish={() => onFinish}
+        size="large"
       >
         <Form.Item
           name="username"

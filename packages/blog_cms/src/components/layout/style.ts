@@ -25,5 +25,18 @@ export const LayoutWarpper = styled.div`
       background-color: ${(props) => props.theme.bgWhiteColor};
       ${(props) => props.theme.mixin.flexCenterEnd};
     }
+    .content {
+      margin: 0 1.6rem;
+      ${(props) => props.theme.mixin.flexStartStartColumn}
+      .nav {
+        margin: 1.6rem 0;
+      }
+      .main {
+        padding: 2.4rem;
+        height: 100%;
+        border-radius: ${(props) => props.theme.borderRadiusLG};
+        background-color: ${(props) => props.theme.bgWhiteColor};
+      }
+    }
   }
 `

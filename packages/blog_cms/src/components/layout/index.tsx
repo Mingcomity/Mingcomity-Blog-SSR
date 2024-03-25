@@ -106,8 +106,8 @@ const HomeLayout: FC<IProps> = ({ children }) => {
           <Header className="header">
             <AppHeader />
           </Header>
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
+          <Content className="content">
+            <Breadcrumb className="nav">
               {pathName
                 ?.split('/')
                 .filter((text) => text.length)
@@ -115,16 +115,7 @@ const HomeLayout: FC<IProps> = ({ children }) => {
                   return <Breadcrumb.Item key={text}>{text}</Breadcrumb.Item>
                 })}
             </Breadcrumb>
-            <div
-              style={{
-                padding: 24,
-                minHeight: 360,
-                background: colorBgContainer,
-                borderRadius: borderRadiusLG
-              }}
-            >
-              {children}
-            </div>
+            <div className="main">{children}</div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             Ant Design ©{new Date().getFullYear()} Created by Ant UED

@@ -15,6 +15,7 @@
     "@reduxjs/toolkit": "^2.2.2",
     "antd": "^5.15.3",
     "classnames": "^2.5.1",
+    "dayjs": "^1.11.10",
     "next": "14.1.0",
     "next-redux-wrapper": "^8.1.0",
     "normalize.css": "^8.0.1",

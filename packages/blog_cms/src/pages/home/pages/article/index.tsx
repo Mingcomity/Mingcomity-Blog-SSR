@@ -5,10 +5,10 @@ interface IProps {
   children?: ReactNode
 }
 
-const PageArticle: FC<IProps> = () => {
-  return <div> PageArticle</div>
+const DataPage: FC<IProps> = () => {
+  return <div> DataPage</div>
 }
 
-PageArticle.displayName = 'PageArticle'
+DataPage.displayName = 'DataPage'
 
-export default memo(PageArticle)
+export default memo(DataPage)

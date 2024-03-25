@@ -1,14 +1,24 @@
-import { memo } from 'react'
-import type { FC, ReactNode } from 'react'
+import styled from 'styled-components'
 
-interface IProps {
-  children?: ReactNode
-}
-
-const DataPage: FC<IProps> = () => {
-  return <div> DataPage</div>
-}
-
-DataPage.displayName = 'DataPage'
-
-export default memo(DataPage)
+export const DatasArticleWrapper = styled.div`
+  .filterBox {
+    margin-bottom: 2.4rem;
+    .ant-select {
+      width: 25rem;
+      max-width: 30rem;
+    }
+  }
+  .articleListBox {
+    .item {
+      width: 100%;
+      padding: 1.2rem 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid ${(props) => props.theme.colorBorderSecondary};
+      }
+      .ant-typography-ellipsis {
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+    }
+  }
+`

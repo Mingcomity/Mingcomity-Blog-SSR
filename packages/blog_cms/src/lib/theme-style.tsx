@@ -13,7 +13,15 @@ interface IProps {
 }
 
 const Template: FC<IProps> = ({ children }) => {
-  const { token } = useToken()
+  const {
+    token: {
+      colorPrimary: primaryColor,
+      colorBgContainer: bgWhiteColor,
+      colorText: fontBlackColor,
+      borderRadiusLG,
+      colorBorderSecondary
+    }
+  } = useToken()
 
   const mixin = {
     flexCenter: `
@@ -34,13 +42,26 @@ const Template: FC<IProps> = ({ children }) => {
       display: flex;
       align-items: center;
       justify-content: flex-end;
+    `,
+    flexStartStartColumn: `
+      display: flex;
+      flex-direction: column;
+    `,
+    bgImgSelfAdaption: `
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-size: cover;
     `
   }
 
   const theme = {
-    primaryColor: token.colorPrimary,
-    bgWhiteColor: token.colorBgContainer,
-    fontBlackColor: token.colorText,
+    primaryColor,
+    bgWhiteColor,
+    fontBlackColor,
+    borderRadiusLG: borderRadiusLG + 'px',
+    colorBorderSecondary,
     mixin
   }
 
