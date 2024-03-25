@@ -1,0 +1,129 @@
+$primary: #468fea;
+$contentWidth: var(--content-width, 133rem);
+
+$fontBlackColor: var(--font-black-color, #222222);
+$fontShallowBlackColor: var(--font-shallow-black-color, #3a3a3a);
+$fontDeeprayColor: var(--font-deep-gray-color, #5a5a5a);
+$fontGrayColor: var(--font-gray-color, #777777);
+$fontShallowGrayColor: var(--font-shallow-gray-color, #999999);
+$fontWhiteColor: #ffffff;
+$fontShallowWhiteColor: #f1f1f1;
+
+$blockHoverColor: var(--block-hover-color, #eeeeee);
+$blockHoverShallowColor: var(--block-hover-shallow-color, #f6f6f6);
+
+$borderGrayColor: var(--border-gray-color, #f1f1f1);
+$borderBlackColor: var(--border-black-color, #444444);
+$borderShallowBlackColor: var(--border-shallow-black-color, #dfdfdf);
+
+$appHeaderHeight: 8rem;
+$appHeaderBgColor: var(--app-header-bg-color, #ffffff);
+$homeBannerHeight: 50rem;
+
+$bgDeepGrayColor: var(--bg-deep-gary-color, #efefef);
+$bgGrayColor: var(--bg-gary-color, #f6f6f6);
+$bgWhiteColor: var(--bg-white-color, #ffffff);
+
+$shadowGrayColor: var(--shadow-gray-color, #dfdfdf);
+$shadowBlackColor: var(--shadow-black-color, #00000012);
+
+// 黑夜模式颜色更替
+html.dark {
+  --font-black-color: #eeeeee;
+  --font-shallow-black-color: #eaeaea;
+  --font-deep-gray-color: #dfdfdf;
+  --font-gray-color: #dddddd;
+  --font-shallow-gray-color: #cacaca;
+  --app-header-bg-color: #141414;
+  --border-black-color: #eeeeee;
+  --border-shallow-black-color: #3e3e3e;
+  --border-gray-color: #2e2e2e;
+  --block-hover-color: #444444;
+  --block-hover-shallow-color: #333333;
+  --bg-deep-gary-color: #1a1a1a;
+  --bg-gary-color: #1d1d1d;
+  --bg-white-color: #141414;
+  --shadow-gray-color: #00000000;
+}
+// 布局
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-start {
+  display: flex;
+  align-items: flex-start;
+}
+@mixin flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-start-between {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-center-every {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+@mixin flex-start-start-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-center-start-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin flex-center-between-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@mixin flex-start-between-column {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+/*多行省略*/
+@mixin multi-line($num) {
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+/*边距*/
+@mixin margin-right($width) {
+  margin-right: $width;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@mixin margin-bottom($height) {
+  margin-bottom: $height;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*背景图自适应*/
+@mixin bgImgSelfAdaption() {
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+}

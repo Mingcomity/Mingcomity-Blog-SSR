@@ -13,6 +13,7 @@
     "@pinia/nuxt": "^0.5.1",
     "@vue/shared": "^3.4.21",
     "element-plus": "^2.6.0",
+    "normalize.css": "^8.0.1",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.19",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
+    "@nuxtjs/color-mode": "3.3.2",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "eslint": "^8",
     "eslint-config-prettier": "^9.1.0",

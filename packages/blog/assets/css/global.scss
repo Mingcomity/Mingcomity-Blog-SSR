@@ -1,0 +1,63 @@
+@import 'normalize.css';
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none;
+}
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  z-index: 9999;
+  animation: clip 0.4s cubic-bezier(0.02, 0, 1, 1);
+}
+
+html.dark::view-transition-old(*) {
+  z-index: 9999;
+  animation: clip 0.4s cubic-bezier(0.02, 0, 1, 1) reverse;
+}
+html.dark::view-transition-new(*) {
+  z-index: 1;
+  animation: none;
+}
+
+@keyframes clip {
+  from {
+    clip-path: circle(0% at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(100% at var(--x) var(--y));
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  :visited {
+    color: inherit;
+  }
+}
+
+.contentCenter {
+  max-width: $contentWidth;
+  margin: 0 auto;
+}
