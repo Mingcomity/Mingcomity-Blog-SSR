@@ -19,23 +19,31 @@ export const LayoutWarpper = styled.div`
         }
       }
     }
-    .header {
-      height: 4.8rem;
-      padding: 0;
-      background-color: ${(props) => props.theme.bgWhiteColor};
-      ${(props) => props.theme.mixin.flexCenterEnd};
-    }
-    .content {
-      margin: 0 1.6rem;
-      ${(props) => props.theme.mixin.flexStartStartColumn}
-      .nav {
-        margin: 1.6rem 0;
-      }
-      .main {
-        padding: 2.4rem;
-        height: 100%;
-        border-radius: ${(props) => props.theme.borderRadiusLG};
+    .ant-layout {
+      .header {
+        height: 4.8rem;
+        padding: 0;
         background-color: ${(props) => props.theme.bgWhiteColor};
+        ${(props) => props.theme.mixin.flexCenterEnd};
+      }
+      .content {
+        flex: 1;
+        min-height: 0;
+        margin: 0 1.6rem;
+        ${(props) => props.theme.mixin.flexStartStartColumn}
+        .nav {
+          margin: 1.6rem 0;
+        }
+        .main {
+          padding: 2.4rem;
+          flex: 1;
+          min-height: 0;
+          border-radius: ${(props) => props.theme.borderRadiusLG};
+          background-color: ${(props) => props.theme.bgWhiteColor};
+        }
+      }
+      .footer {
+        text-align: center;
       }
     }
   }

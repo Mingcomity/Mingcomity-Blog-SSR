@@ -9,6 +9,7 @@ import ThemeStyle from '@/lib/theme-style'
 import AntConfigProviderPageRouter from '@/lib/ant-config-provider-page-router'
 import wrapper from '@/stores'
 import { Provider } from 'react-redux'
+import AppHeader from '@/components/app-header'
 
 // 每次点击刷新浏览器器会执行，如果是在前端路由导航不会触发执行
 export default function App({
@@ -36,7 +37,20 @@ export default function App({
         </AntConfigProviderPageRouter>
       </Provider>
     )
-  } else {
+  }
+  // else if (cn === 'ArticleIssue') {
+  //   return (
+  //     <Provider store={store}>
+  //       <AntConfigProviderPageRouter>
+  //         <ThemeStyle>
+  //           <AppHeader />
+  //           <Component {...props.pageProps} />
+  //         </ThemeStyle>
+  //       </AntConfigProviderPageRouter>
+  //     </Provider>
+  //   )
+  // }
+  else {
     return (
       <Provider store={store}>
         <AntConfigProviderPageRouter>

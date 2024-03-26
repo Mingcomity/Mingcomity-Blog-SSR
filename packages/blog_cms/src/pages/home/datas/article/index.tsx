@@ -14,7 +14,7 @@ import {
 import { memo, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import dayjs, { Dayjs } from 'dayjs'
-import { DatasArticleWrapper } from '@/styles/home/datas/article/page'
+import { DatasArticleWrapper } from '@/styles/home/datas/article'
 import {
   PlusCircleOutlined,
   PlusOutlined,
@@ -129,9 +129,11 @@ const PageArticle: FC<IProps> = () => {
             搜索
           </Button>
         </Space>
-        <Button type="primary" icon={<PlusCircleOutlined />}>
-          发布
-        </Button>
+        <Link href="/home/datas/article/issue" target="_blank">
+          <Button type="primary" icon={<PlusCircleOutlined />}>
+            发布
+          </Button>
+        </Link>
       </Flex>
       <Flex className="articleListBox" vertical>
         <div className="item">

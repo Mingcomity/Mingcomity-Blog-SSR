@@ -117,7 +117,7 @@ const HomeLayout: FC<IProps> = ({ children }) => {
             </Breadcrumb>
             <div className="main">{children}</div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>
+          <Footer className="footer">
             Ant Design ©{new Date().getFullYear()} Created by Ant UED
           </Footer>
         </Layout>
