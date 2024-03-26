@@ -1,15 +1,44 @@
-import { memo, useEffect } from 'react'
+import { memo } from 'react'
 import type { FC, ReactNode } from 'react'
+import 'bytemd/dist/index.css'
+import { Editor, Viewer } from '@bytemd/react'
+import zhHans from 'bytemd/locales/zh_Hans.json'
 
-import { useState } from 'react'
-import { MdCatalog, MdEditor, MdPreview } from 'md-editor-rt'
-import 'md-editor-rt/lib/style.css'
-import { shallowEqualApp, useAppSelector } from '@/stores'
-import { ModeEnum } from '@/stores/feature/theme'
-import { DropdownToolbar, InsertContentGenerator } from 'md-editor-rt'
-import { SkinTwoTone } from '@ant-design/icons'
-import { Button } from 'antd'
-import { DownOptionsWarpper } from './style'
+import gfm from '@bytemd/plugin-gfm'
+import breaks from '@bytemd/plugin-breaks'
+import gemoji from '@bytemd/plugin-gemoji'
+import highlight from '@bytemd/plugin-highlight-ssr'
+import math from '@bytemd/plugin-math-ssr'
+import medium from '@bytemd/plugin-medium-zoom'
+import mermaid from '@bytemd/plugin-mermaid'
+import frontmatter from '@bytemd/plugin-frontmatter'
+
+const plugins = [
+  // {
+  //   viewerEffect({ file }: any) {
+  //     if (typeof file.value != 'object') return
+  //     const $style = document.createElement('style')
+  //     try {
+  //       $style.innerHTML =
+  //         themes[file.value.frontmatter.theme]?.style ?? themes.juejin.style
+  //     } catch (e) {
+  //       $style.innerHTML = themes.juejin.style
+  //     }
+  //     document.querySelector('.markdown-body')?.appendChild($style)
+  //     return () => {
+  //       $style.remove()
+  //     }
+  //   }
+  // },
+  breaks(),
+  frontmatter(),
+  gemoji(),
+  gfm(),
+  highlight(),
+  math(),
+  medium(),
+  mermaid()
+]
 
 interface IProps {
   children?: ReactNode
@@ -19,144 +48,20 @@ interface IProps {
   setMdValue: (value: string) => void
 }
 
-interface MyToolbarProps {
-  insert?: (generator: InsertContentGenerator) => void
-  setTheme: (value: TypeMdTheme) => void
-}
-
-type TypeMdTheme =
-  | 'default'
-  | 'github'
-  | 'vuepress'
-  | 'mk-cute'
-  | 'smart-blue'
-  | 'cyanosis'
-
-const MyToolbar = ({ insert = () => {}, setTheme }: MyToolbarProps) => {
-  const [visible, setVisible] = useState(false)
-  const themeArr: TypeMdTheme[] = [
-    'default',
-    'github',
-    'vuepress',
-    'mk-cute',
-    'smart-blue',
-    'cyanosis'
-  ]
-  return (
-    <DropdownToolbar
-      visible={visible}
-      onChange={setVisible}
-      overlay={
-        <DownOptionsWarpper>
-          {themeArr.map((value) => {
-            return (
-              <li key={value} className="item">
-                <Button
-                  type="text"
-                  size="small"
-                  onClick={() => setTheme(value)}
-                >
-                  {value}
-                </Button>
-              </li>
-            )
-          })}
-        </DownOptionsWarpper>
-      }
-      trigger={<SkinTwoTone />}
-      key="emoji-toolbar"
-    />
-  )
-}
-
-const MdEditorComponent: FC<IProps> = ({
+const MdEditor: FC<IProps> = ({
   editorId,
   className = '',
   mdValue,
   setMdValue
 }) => {
-  // 主题
-  const [mdTheme, setMdTheme] = useState<TypeMdTheme>('default')
-  const { algorithmType } = useAppSelector(
-    (state) => ({
-      algorithmType: state.theme.algorithmType
-    }),
-    shallowEqualApp
-  )
-  // 黑夜模式切换
-  function getTheme() {
-    switch (algorithmType) {
-      case ModeEnum.daytime:
-        return 'light'
-      case ModeEnum.night:
-        return 'dark'
-    }
-  }
-
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
   return (
-    isClient && (
-      <MdEditor
-        className={className}
-        autoDetectCode
-        toolbars={[
-          'bold',
-          'underline',
-          'italic',
-          '-',
-          'strikeThrough',
-          'sub',
-          'sup',
-          'quote',
-          'unorderedList',
-          'orderedList',
-          'task',
-          '-',
-          'codeRow',
-          'code',
-          'link',
-          'image',
-          'table',
-          'mermaid',
-          'katex',
-          '-',
-          'revoke',
-          'next',
-          'save',
-          '-',
-          0,
-          '=',
-          'pageFullscreen',
-          'fullscreen',
-          'preview',
-          'htmlPreview',
-          'catalog'
-        ]}
-        defToolbars={[<MyToolbar key="theme" setTheme={setMdTheme} />]}
-        previewTheme={mdTheme}
-        modelValue={mdValue}
-        onChange={setMdValue}
-        theme={getTheme()}
-        editorId={editorId}
-        onSave={(v, h) => {
-          console.log(v, 'v')
-          h.then((html) => {
-            console.log(html, 'html')
-          })
-        }}
-        onGetCatalog={(list: any) => {
-          console.log(list)
-        }}
-      />
-    )
+    <Editor
+      locale={zhHans}
+      value={mdValue}
+      plugins={plugins}
+      onChange={setMdValue}
+    />
   )
 }
 
-MdEditorComponent.displayName = 'MdEditorComponent'
-
-export default memo(MdEditorComponent)
+export default memo(MdEditor)

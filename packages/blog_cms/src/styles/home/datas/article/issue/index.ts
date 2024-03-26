@@ -4,6 +4,7 @@ export const IssueFormWrapper = styled.div`
   width: 40rem;
   .ant-typography {
     font-weight: 400;
+    font-size: 1.6rem;
   }
   .ant-divider {
     margin: 0;
@@ -24,8 +25,17 @@ export const ArticleIssueWrapper = styled.div`
       box-shadow: none;
     }
   }
+  & > div {
+    &:nth-child(2) {
+      flex: 1;
+      min-height: 0%;
+    }
+  }
   .mdEditorBox {
     flex: 1;
     min-height: 0%;
+  }
+  .bytemd {
+    height: 100%;
   }
 `
